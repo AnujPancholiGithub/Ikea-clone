@@ -12,4 +12,15 @@ let initialState = {
 }
 
 
+<<<<<<< HEAD
 function reducer(state = initialState, Action)
+=======
+function reducer(state = initialState, Action) {
+
+
+
+
+
+
+}
+>>>>>>> 5936f3975694dbb7dfd14e2040919063249df658
