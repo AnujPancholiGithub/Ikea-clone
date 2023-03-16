@@ -26,7 +26,6 @@ export default function Header(){
                 </div>
             </div>
                 
-            
             <div style={{display:"flex", justifyContent:"space-evenly", alignItems:"center", gap:"20px"}}>
                 <span class="material-symbols-outlined">person</span>
                 <span>Hej! Log in or Sign up</span> 
