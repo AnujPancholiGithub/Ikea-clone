@@ -1,6 +1,6 @@
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons"
 import {InputGroup,  InputLeftAddon, Input, Drawer,DrawerBody, DrawerOverlay, DrawerContent, DrawerHeader, useDisclosure,  } from "@chakra-ui/react"
-
+import "./Header.css";
 import { Link } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
@@ -14,15 +14,16 @@ export default function Header(){
                 <HamburgerIcon style={{cursor:"pointer"}}/>
                 <p style={{cursor:"pointer"}}>Menu</p>
             </div>
-            <div style={{display:"flex", gap:"20px"}}>
+            <div style={{display:"flex", gap:"20px", justifyContent:"space-between"}}>
                 <div>
                     <img src="https://www.ikea.com/in/en/static/ikea-logo.f7d9229f806b59ec64cb.svg" alt="IKEA" />                
                 </div>
-                <div>                 
+                <div className="searchBox">                 
                     <InputGroup >
                         <InputLeftAddon><SearchIcon/></InputLeftAddon>
-                        <Input w='600px' type='text' placeholder='What are you looking for?' />
+                        <Input w='500px' type='text' placeholder='What are you looking for?' />
                     </InputGroup>                 
+                                     
                 </div>
             </div>
                 
@@ -35,6 +36,12 @@ export default function Header(){
                 <span class="material-symbols-outlined">shopping_basket</span>
             </div>
             
+        </div>
+        <div className="searchBox1"  >
+                <InputGroup >
+                    <InputLeftAddon><SearchIcon/></InputLeftAddon>
+                    <Input w='600px' type='text' placeholder='What are you looking for?' />
+                </InputGroup>
         </div>
         <div style={{display:"flex",  gap:"20px", marginLeft:"100px", marginTop:"10px"}}>
           
