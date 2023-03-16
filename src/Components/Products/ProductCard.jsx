@@ -2,63 +2,32 @@ import { Card, CardBody, CardFooter, Divider, Heading, Stack, Text, Image, Butto
 
 import { FaShoppingBasket, FaRegHeart } from "react-icons/fa"
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import products from "./../JsonFiles/elctroCo.json"
 
-// let data = [{
-//     src: 'https://www.ikea.com/in/en/images/products/symfonisk-wifi-bookshelf-speaker-black__0722663_pe741648_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1012832_pe829036_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://www.ikea.com/in/en/images/products/symfonisk-shade-for-speaker-lamp-base-glass-black__0993358_pe820508_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// },
-// {
-//     src: 'https://www.ikeaa.com/in/en/images/products/symfonisk-wifi-bookshelf-speaker-black__0722663_pe741648_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1012832_pe829036_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }, {
-//     src: 'https://www.ikea.com/in/en/images/products/symfonisk-shade-for-speaker-lamp-base-glass-black__0993358_pe820508_s5.jpg?f=xxs',
-//     title: "Living room Sofa",
-//     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-//     price: "$450"
-// }]
+import products from "./../JsonFiles/elctroCo.json"
 
 let data = products.products;
 console.log("products", products.products)
 
 function ProductCard() {
     console.log("products")
+
+
+
+    function handelProductDetail() {
+
+
+
+    }
+
+
+
     return (
         <Box>
             <SimpleGrid columns={{ sm: 2, md: 3, lg: 4 }} spacing={10} >
 
                 {data.map((ele) => {
                     return (
-                        <Card maxW='sm'>
+                        <Card maxW='sm' onClick={handelProductDetail} >
                             <CardBody>
                                 <Image
                                     w="300px"

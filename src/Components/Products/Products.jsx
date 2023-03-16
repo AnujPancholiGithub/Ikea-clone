@@ -14,6 +14,7 @@ function Products() {
     }, [])
 
     return (<Box>
+
         <ListingHero />
         <ListingFilters />
 
