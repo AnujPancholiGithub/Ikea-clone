@@ -14,12 +14,12 @@ function Products() {
     }, [])
 
     return (<Box>
-        {/* <ListingHero /> */}
-        {/* <ListingFilters />
+        <ListingHero />
+        <ListingFilters />
 
         {loding === "true" ? <ProductCard /> : <SkletonLoader />}
-        <DynamicProducts /> */}
-        <SingleProduct />
+        <DynamicProducts />
+        {/* <SingleProduct /> */}
 
     </Box>)
 }
