@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ProductCart from './Components/Cart/ProductCart';
 import Track from './Components/Cart/TrackOrder';
+import EmptyCart from './Components/Cart/EmptyCart';
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,8 @@ function App() {
         </a>
       </header> */}
 
-      <Track/>
+      <EmptyCart/>
+      
       
     </div>
     
