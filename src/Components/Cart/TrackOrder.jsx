@@ -1,7 +1,7 @@
 
 
 
-function EmptyCart() {
+function Track() {
     
      
     return (
@@ -66,5 +66,5 @@ function EmptyCart() {
     )
 }
 
-export default EmptyCart;
+export default Track;
 
