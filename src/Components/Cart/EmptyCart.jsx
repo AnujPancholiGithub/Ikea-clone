@@ -74,7 +74,7 @@ function EmptyCart() {
                             <div style={{
                                 width : "100%",
                                 height : "400px",
-                                alignItems : "center"
+                                alignItems : "center",
                             }}>
                                 <img src={e.img} alt="" style={{
                                     width : "100%",
