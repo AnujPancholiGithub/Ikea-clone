@@ -7,7 +7,9 @@ function App() {
   return (
 
     <Box className="App">
+
       <Products />
+
     </Box>
   );
 }

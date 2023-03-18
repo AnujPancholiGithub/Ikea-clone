@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Box, Card } from "@chakra-ui/react";
 import DynamicProducts from "./DynamicProducts";
-import ListingFilters from "./ListingFilters";
+import ListingFilters from "./Filters";
 import ListingHero from "./ListingHero";
 import ProductCard from "./ProductCard";
 import SkletonLoader from "./SkletonLoader";
@@ -13,16 +13,18 @@ function Products() {
         setTimeout(() => { setLoding("true") }, 2500)
     }, [])
 
-    return (<Box>
+    return (
+        <Box>
 
-        <ListingHero />
-        <ListingFilters />
 
-        {loding === "true" ? <ProductCard /> : <SkletonLoader />}
-        <DynamicProducts />
-        {/* <SingleProduct /> */}
+            <ListingHero />
+            <ListingFilters />
+            {loding === "true" ? <ProductCard /> : <SkletonLoader />}
+            <DynamicProducts />
 
-    </Box>)
+            {/* <SingleProduct /> */}
+
+        </Box>)
 }
 
 export default Products;
