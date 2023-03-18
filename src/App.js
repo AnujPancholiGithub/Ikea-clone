@@ -7,8 +7,8 @@ import Signup from './components/signup/Signup';
 
 function App() {
   return (
-     <AllRoutes/>
-    
+    <AllRoutes />
+
   );
 }
 
