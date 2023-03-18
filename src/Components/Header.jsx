@@ -16,7 +16,7 @@ export default function Header(){
             </div>
             <div style={{display:"flex", gap:"20px", justifyContent:"space-between"}}>
                 <div>
-                    <img src="https://www.ikea.com/in/en/static/ikea-logo.f7d9229f806b59ec64cb.svg" alt="IKEA" />                
+                <Link to="/"><img src="https://www.ikea.com/in/en/static/ikea-logo.f7d9229f806b59ec64cb.svg" alt="IKEA" /></Link>                
                 </div>
                 <div className="searchBox">                 
                     <InputGroup >
@@ -29,11 +29,12 @@ export default function Header(){
                 
                 
             <div style={{display:"flex", justifyContent:"space-evenly", alignItems:"center", gap:"20px"}}>
-                <span class="material-symbols-outlined">person</span>
+                <Link to="/signup"><span class="material-symbols-outlined">person</span></Link>
+                
                 <span>Hej! Log in or Sign up</span> 
-                <span class="material-symbols-outlined">local_shipping</span>
-                <span class="material-symbols-outlined">favorite</span>
-                <span class="material-symbols-outlined">shopping_basket</span>
+                <Link to=""><span class="material-symbols-outlined">local_shipping</span></Link>
+                <Link to=""><span class="material-symbols-outlined">favorite</span></Link>
+                <Link to=""><span class="material-symbols-outlined">shopping_basket</span></Link>
             </div>
             
         </div>
