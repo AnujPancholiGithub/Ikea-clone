@@ -87,7 +87,7 @@ export default function Login() {
                     <Flex marginTop="32px" alignItems="center">
                         <Checkbox size="lg" spacing="20px">Stay signed in until you sign out </Checkbox>
 
-                        <Tooltip label="Hey, I'm here!" aria-label='A tooltip' placement='top' color="white" bg="black" >
+                        <Tooltip label="If you stay logged in, you don't have to log in again every time you visit. We recommend that you only use this option on your personal devices." aria-label='A tooltip' placement='top' color="white" bg="black" fontSize=".75rem" minWidth="450px" padding="10px" borderRadius="5px" >
                             <InfoIcon h="20px" w="30px" marginLeft="95px"/>
                         </Tooltip>
                     </Flex>
