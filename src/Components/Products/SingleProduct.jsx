@@ -1,23 +1,12 @@
-import { Box, Stack, HStack, Flex, SimpleGrid, VStack, Image, Progress, Heading, Divider, Input, Button, Text, Grid, useMediaQuery, IconButton, Select, FormControl } from "@chakra-ui/react";
+import { Box, Stack, HStack, Flex, SimpleGrid, VStack, Image, Progress, Heading, Divider, Input, Button, Text, Grid, useMediaQuery, IconButton, Select, FormControl, Spinner } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DynamicProducts from "./DynamicProducts"
-
-let data = [{
-    img: [{ img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__0985447_pe816631_s5.jpg?f=xs" },
-    { img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1152747_pe885450_s5.jpg?f=xs" },
-    { img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1152746_pe885451_s5.jpg?f=xs" },
-    { img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1022335_pe832682_s5.jpg?f=xs" },
-    { img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__1048881_ph180308_s5.jpg?f=xs" },
-    { img: "https://www.ikea.com/in/en/images/products/symfonisk-picture-frame-with-wifi-speaker-black-smart__0985447_pe816631_s5.jpg?f=xs" }
-    ],
-    title: "Picture frame with WiFi speaker, black/smart",
-    brand: "SYMFONISK",
-    price: "Rs.16,900"
-}]
+import { useSelector } from "react-redux";
+import products from "./../JsonFiles/elctroCo.json";
 
 let pinCodeData = [
     { pinCode: 301406 },
@@ -32,14 +21,33 @@ let pinCodeData = [
 ]
 
 
+
 function SingleProduct() {
+    const [singleProduct, setSingleProduct] = useState([])
     const [pinCheck, setPincheck] = useState(false)
     const [userPin, setUserPin] = useState(123456);
     const [progessDisplay, setProgessDisplay] = useState("none");
     const [progessPercentage, setProgessPercentage] = useState(1);
     const [pinText, setPinText] = useState("");
 
+    let elementID = useSelector((state) => {
+        return state.element;
+    })
 
+    useEffect(() => {
+        getSingleProduct()
+    }, [elementID])
+
+    function getSingleProduct() {
+
+        let product = products.products.filter((ele) => {
+            return elementID === ele.id;
+        })
+        setSingleProduct((prevState) => product);
+    }
+
+
+    console.log("data", singleProduct, elementID);
     const [isSmallScreen] = useMediaQuery("(max-width: 767px)");
 
     // console.log(pinCheck);
@@ -83,14 +91,12 @@ function SingleProduct() {
             console.log("Great News! We now deliver to your area!")
             return;
         } else {
-
             setTimeout(() => {
                 clearInterval(id); setProgessDisplay("none"); setProgessPercentage(0);
                 setPinText((prevState) => "Sorry We are currently not delivering to your area :(")
             }, 2000)
             setPincheck(false);
             console.log("Sorry We no deliver to your area :(")
-
         }
         console.log(pinSearch)
 
@@ -100,27 +106,27 @@ function SingleProduct() {
     return (<Box padding="3rem 3rem">
         {/* Jai Shree Ram */}
 
-        <SimpleGrid gap={10} columns={[1, 1, 2]}>
-            <Box>
+        {singleProduct.length > 0 ? <SimpleGrid gap={10} columns={[1, 1, 2]}>
+            {<Box>
                 {isSmallScreen ? (
                     <Carousel showArrows={true}>
-                        {data[0].img.map((ele, index) => (
-                            <div key={index}>
-                                <Image src={ele.img} alt={ele.img} />
+                        {singleProduct[0].images.map((ele, index) => (
+                            <div key={index + 1}>
+                                <Image src={ele.url} alt={ele.url} />
                             </div>
                         ))}
                     </Carousel>
                 ) : (
                     <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={10}>
-                        {data[0].img.map((ele, index) => (
+                        {singleProduct[0].images.map((ele, index) => (
                             <Box key={index}>
-                                <Image src={ele.img} alt={ele.img} />
+                                <Image src={ele.url} alt={ele.url} />
                             </Box>
                         ))}
                     </SimpleGrid>
                 )}
-            </Box>
-            <VStack spacing={10}>
+            </Box>}
+            {singleProduct.length > 0 ? <VStack spacing={10}>
                 <Box p={4} bg="white" borderWidth="1px" borderRadius="md" boxShadow="md">
                     <Stack direction={{ base: "column", lg: "column" }} align={{ base: "stretch", lg: "center" }} justify={{ base: "center", lg: "space-between" }}>
                         <Stack w="100%" direction="row" align="center" justify="space-between" flex="1" >
@@ -156,7 +162,7 @@ function SingleProduct() {
                         </Box>
                     </Stack>
                     <HStack>
-                        <Image src="https://imgpile.com/images/hwWJv1.jpg" />
+                        <Image src="https://urlpile.com/images/hwWJv1.jpg" />
                     </HStack>
                 </Box>
 
@@ -193,8 +199,13 @@ function SingleProduct() {
                     </Text>
                 </VStack>
 
-            </VStack>
-        </SimpleGrid>
+            </VStack> : <Heading> Try to reload if it's not resolve</Heading>}
+        </SimpleGrid> : <HStack justify={"center"}>
+            <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />
+            <Heading>Loading...</Heading>
+        </HStack>
+        }
+
         <DynamicProducts />
     </Box >);
 }
