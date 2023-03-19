@@ -1,5 +1,8 @@
 import {useState} from "react"
-
+import Header from "../Header";
+import Footer from "../Footer";
+import {Heading} from "@chakra-ui/react"
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 
 function ProductCart() {
     var data = [
@@ -42,7 +45,9 @@ function ProductCart() {
         setState(val*149);
     }
 return (
-    <div>
+    <div className="parent-div-pro-cart">
+        <Header/>
+
         <div  style={{
         display : "flex",
         // backgroundColor:"green",
@@ -53,10 +58,11 @@ return (
         <div className="left-div" style={{
             textAlign : "left",
             // boxShadow : "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
-            width : "100%"
+            width : "100%",
+            marginTop : "20px"
         }}>
-            <h1>Shopping bag</h1>
-            <p>Your postal code <a href="">560001</a></p>
+            <Heading>Shopping bag</Heading>
+            <Heading size={8} display = "flex" gap={1}>Your postal code <Heading size={8} textDecoration = "underline" cursor="pointer">560001</Heading></Heading>
             <div >
 
                 <div id="products" style={{
@@ -71,9 +77,11 @@ return (
                     <div style={{
                         textAlign : "left",
                     }}>
-                        <h3>ÖBONÄS</h3>
+                        <Heading size={10}>ÖBONÄS</Heading>
                         <p>Triple Hook With Suction Cup, grey-green7x11 cm (2 ¾x4 ¼ ")</p>
-                        <select name="qty" id="qty" placeholder="quantity" onChange={(event)=>handleEvent(event.target.value)}>
+                        <select name="qty" id="qty" placeholder="quantity" style={{
+                            marginTop : "5%"
+                        }} onChange={(event)=>handleEvent(event.target.value)}>
                             <option value="1" >1</option>
                             <option value="2" >2</option>
                             <option value="3" >3</option>
@@ -81,18 +89,21 @@ return (
                             <option value="5" >5</option>
                         </select>
                     </div>
-                    <h3>Rs. 149</h3>
+                    <Heading size={8}>Rs. 149</Heading>
                 </div>
 
             </div>
         </div>
 
         <div className="rigth-div" style={ {
-            width : "50%"
+            width : "60%",
+            textAlign : "center"
         }}>
             <h3 style={{
                 color: "#484848",
-                marginRight : "60%"
+                marginRight : "70%",
+                marginBottom : "5%",
+                fontWeight : "bold"
             }}>Order summary</h3>
             <p style={ {
                 color : "#11111166",
@@ -102,36 +113,41 @@ return (
                 display : "flex",
                 justifyContent : "space-between",
                 
-            }}><h3>Subtotal</h3><h2>Rs. {state}</h2>
+            }}><Heading size={8}>Subtotal</Heading><Heading size={8}>Rs. {state}</Heading>
             </div>
 
             <div style={{
                  boxShadow : "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
-                padding : "2%",
+                padding : "6%",
                 width : "100%",
                 height : "100px",
                 alignItems : "center",
+                marginTop : "20px"
             }}> <h4 style={{
                 color: "#484848",
+                fontWeight : "bold"
             }}>Delivery estimates will be available on the next page.</h4> </div>
             <div style={{
                  boxShadow : "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
-                padding : "2%",
+                padding : "7%",
+                display : "flex",
                 width : "100%",
                 height : "100px",
                 alignItems : "center",
                 marginTop : "30px",
+                justifyContent : "space-evenly",
                 backgroundColor : "#0058a3",
                 
-            }}> <a href="" style={{
-                color : "white"
-            }}><h4>View delivery and pickup options </h4></a> </div>
+            }}> <Heading size={8} color = {"white"} cursor="pointer">View delivery and pickup options </Heading> <ArrowForwardIcon color="white" cursor="pointer" fontSize="25px" /></div>
 
             <div style={ {
                 textAlign : "left",
+                marginTop : "5%",
+                gap : "40px"
             }}>
-            <a href=""><h4>Our Return Policy</h4></a>
-            <a href=""><h4>Secure shopping with SSL data encryption</h4></a>
+            <Heading size={8}  cursor="pointer" textDecoration={"underline"}>Our Return Policy..... </Heading>
+            <Heading size={8}  cursor="pointer" textDecoration={"underline"}>Secure shopping with SSL data encryption.... </Heading>
+            
             </div>
         </div>
     </div>
@@ -183,7 +199,7 @@ return (
                 }
 
             </div>
-
+        <Footer/>
     </div>
     
 )

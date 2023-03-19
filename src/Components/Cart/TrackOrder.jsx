@@ -1,12 +1,18 @@
+import React from "react";
+import {Button,Heading} from "@chakra-ui/react";
+import Header from "../Header";
+import Footer from "../Footer";
 
-
-
-function Track() {
+function TrackOrder() {
     
      
     return (
-        <div className="parent-div-cart" style={{
-            width : "70%",
+        <div className="parent-div-cart" style={ {
+            width:"100%",
+        }}>
+            <Header/>
+            <div  style={{
+            width : "100%",
             height : "100%",
             margin : "auto",
             display : "flex",
@@ -22,7 +28,7 @@ function Track() {
                 justifyContent : "left",
                 boxShadow : "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
             }}> 
-            <h1>Track & manage my order</h1>
+            <Heading>Track & manage my order</Heading>
                 <div style={{
                     width:"100%",
                     textAlign:"left",
@@ -45,26 +51,30 @@ function Track() {
                 <input type="text" placeholder="Order number" style={{
                     width:"98%",
                 }} />
+                <p>_________________________________________________________________________________</p>
                 <p>9-10 digits with no spaces.</p>
                 
                 <input type="text" placeholder="Email address or phone number" style={{
                     width:"98%",
                 }}/>
+                <p>_________________________________________________________________________________</p>
                 <p>The email or phone number used when placing the order.</p>
                 
-                
-                <button style={{
+                <Button marginTop="40px" colorScheme='#0058a3' bg='#111111' color="white" padding="0px 32px" borderRadius="64px" fontWeight="700" minHeight="3.5rem" w="28vw">Look up order</Button>
+                {/* <button style={{
                     color : "white",
                     borderRadius : "20%",
                     width : "50%",
                     backgroundColor : "black",
                     padding : "3%"
-                }}>Look up order</button>
+                }}>Look up order</button> */}
             </div>
             
         </div>
+        <Footer/>
+    </div>
     )
 }
 
-export default Track;
+export default TrackOrder;
 

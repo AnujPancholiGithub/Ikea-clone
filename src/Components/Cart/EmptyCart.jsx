@@ -1,58 +1,28 @@
-
-
+import Header from "../Header";
+import Footer from "../Footer";
+import {Heading} from "@chakra-ui/react"
+import { Link } from '@chakra-ui/react'
+import DynamicProducts from "../Products/DynamicProducts";
 
 function EmptyCart() {
-    var data = [
-        {
-            img : "https://www.ikea.com/in/en/images/products/smycka-artificial-flower-peony-pink__0903043_pe685421_s5.jpg?f=xxs",
-            title : "SMYCKA",
-            desc : "Artificial flower, 30 cm (11 ¾ )",
-            cprice : "Rs. 99",
-            price : "Rs. 69",
-            vprice : "Price valid Mar 11 - Mar 26 or while supply lasts",
-        },
-        {
-            img : "https://www.ikea.com/in/en/images/products/besta-tv-bench-white-sindvik-lappviken-mejarp-light-grey-beige__0843389_pe535717_s5.jpg?f=xxs",
-            title : "BESTÅ",
-            desc : "TV bench, 180x42x48 cm (70 7/8x16 1/2x18 7/8 )",
-            cprice : "Rs. 26999",
-            price : "Rs. 22999",
-            vprice : "Price valid Mar 11 - Mar 26 or while supply lasts",
-        },
-        {
-            img : "https://www.ikea.com/in/en/images/products/besta-storage-combination-with-drawers-black-brown-lappviken-sindvik-stubbarp-black-brown-clear-glass__0750781_pe746832_s5.jpg?f=xxs",
-            title : "BESTÅ",
-            desc : "TV storage combination/glass doors, 240x42x129 cm (94 1/2x16 1/2x50 3/4 )",
-            cprice : "Rs. 25999",
-            price : "Rs. 23999",
-            vprice : "Price valid Mar 11 - Mar 26 or while supply lasts",
-        },
-        {
-            img : "https://www.ikea.com/in/en/images/products/besta-storage-combination-with-drawers-black-brown-lappviken-sindvik-stubbarp-black-brown-clear-glass__0750781_pe746832_s5.jpg?f=xxs",
-            title : "BESTÅ",
-            desc : "Storage combination with drawers, 180x42x74 cm (70 7/8x16 1/2x29 1/8 )",
-            cprice : "Rs. 24999",
-            price : "Rs. 21999",
-            vprice : "Price valid Mar 11 - Mar 26 or while supply lasts",
-        },
-    ]
+    
 
     return (
+        
         <div className="parent-emptycart" >
+            <Header/>
             <div style={{
-            width : "90%",
+            width : "80%",
             textAlign : "left",
-            margin  : "auto"
-
+            margin  : "auto",
+            marginTop : "50px"
         }}>
-            <h1>Your bag is empty</h1>
-
             
-            <a href="https://react.school" target="_blank">
-                 Continue to Shopping 
-            </a>
+            <Heading>Your bag is empty</Heading>
+            <Heading size={8}>Continue To Shopping ...</Heading>
+            <DynamicProducts/>
             </div>
-            <div style={{
+            {/* <div style={{
                  width : "90%",
                  textAlign : "left",
                  margin  : "auto"
@@ -98,7 +68,9 @@ function EmptyCart() {
                     })
                 }
 
-            </div>
+            </div> */}
+            
+            <Footer/>
         </div>
     )
 }
