@@ -1,0 +1,13 @@
+.searchBox1{
+    display: none;
+}
+
+@media (max-width: 780px) {
+    .searchBox{
+        display: none;
+    }
+    .searchBox1{
+        display: block;
+        margin-left: 100px;
+    }
+  }
