@@ -1,0 +1,5 @@
+
+export let SET_PRODUCTS = "SET PRODUCTS"
+export let SET_FILTER = "SET FILTER";
+export let SET_SORT = "SET SORT";
+export let SET_SINGLEPRODUCT = "SET SINGLE PRODUCT";
