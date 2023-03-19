@@ -1,6 +1,6 @@
 import {Box,Heading,Text,Flex,Img,Button,Input} from "@chakra-ui/react"
 import {DeleteIcon} from "@chakra-ui/icons"
-import Footer from "../Footer";
+
 function Payment() {
 
 return (
@@ -90,7 +90,33 @@ return (
                 <Button marginLeft="85%"  bg="#0274cb" color="white" marginTop="4"> Place order</Button>
             </Box>
         </Flex>
-        <Footer/>
+        <Flex gap="20px" justifyContent="space-between" marginTop="50px">
+            <Flex alignItems="center" justify="space-between"gap="20px" padding="20px" boxShadow= "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px">
+                <Img src="https://cncdeploy.s3-eu-west-1.amazonaws.com/images/in/delivery.png"></Img>
+                <Box>
+                    <Heading fontSize="sm">Our Delivery Service</Heading>
+                    <Text>Safe & contact-less delivery according to government permission.</Text>
+                </Box>
+            </Flex>
+            <Flex alignItems="center" justify="space-between"gap="20px" padding="20px" boxShadow= "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px">
+                <Img src="https://cncdeploy.s3-eu-west-1.amazonaws.com/in/2.4.125.8.2.1/prod/png/returns.png"></Img>
+                <Box>
+                    <Heading fontSize="sm">Our Return Policy</Heading>
+                    <Text>We have made some updates to our return policy due to the COVID 19 situation.</Text>
+                </Box>
+            </Flex>
+            <Flex alignItems="center" justify="space-between"gap="20px" padding="20px" boxShadow= "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px">
+                <Img src="https://cncdeploy.s3-eu-west-1.amazonaws.com/images/in/assembly.png"></Img>
+                <Box>
+                    <Heading fontSize="sm">Our Assembly Service</Heading>
+                    <Text>Sometimes it is nice to have someone else assemble it for you.</Text>
+                </Box>
+            </Flex>
+        </Flex>
+
+        <Box marginTop="20px">We use the latest technology to encrypt all personal information which you submit through our site or checkout.</Box>
+
+        <Box marginTop="40px" bg="#666666" color="white" fontSize="xs" h={10} alignItems="center" padding={3}><Text marginLeft="5px">© Inter IKEA Systems B.V. 2009 - 2022 | Terms of service | FAQ | Privacy | Use of cookies</Text></Box>
     </Box>
 )
 }
