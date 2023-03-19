@@ -4,6 +4,7 @@ import Login from './../login/Login'
 import Signup from './../signup/Signup'
 import Products from "./../Products/Products"
 import SingleProduct from '../Products/SingleProduct'
+import ProductCart from '../Cart/ProductCart'
 
 export default function AllRoutes() {
   let arr = [
@@ -26,6 +27,10 @@ export default function AllRoutes() {
     {
       path: "/shop/product/:id/:title",
       element: <SingleProduct />
+    },
+    {
+      path: "/cart",
+      element: <ProductCart />
     }
   ]
   return (

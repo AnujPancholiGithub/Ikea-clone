@@ -1,3 +1,4 @@
+// import './../../';
 import { useEffect, useState } from "react"
 import { Box, Card } from "@chakra-ui/react";
 import DynamicProducts from "./DynamicProducts";
@@ -22,7 +23,7 @@ function Products() {
 
 
     return (
-        <Box>
+        <Box className='App'>
 
 
             <ListingHero />
