@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import DynamicProducts from "./DynamicProducts"
 import { useSelector } from "react-redux";
 import products from "./../JsonFiles/elctroCo.json";
+import { useParams } from "react-router-dom"
+
 
 let pinCodeData = [
     { pinCode: 301406 },
@@ -23,25 +25,27 @@ let pinCodeData = [
 
 
 function SingleProduct() {
+
     const [singleProduct, setSingleProduct] = useState([])
     const [pinCheck, setPincheck] = useState(false)
     const [userPin, setUserPin] = useState(123456);
     const [progessDisplay, setProgessDisplay] = useState("none");
     const [progessPercentage, setProgessPercentage] = useState(1);
     const [pinText, setPinText] = useState("");
-
-    let elementID = useSelector((state) => {
-        return state.element;
-    })
-
+    const [isLoading, setIsLoading] = useState(false);
+    const { elementID } = useParams();
+    // let elementID = useSelector((state) => {
+    //     return state.element;
+    // })
+    console.log("elementID", elementID)
     useEffect(() => {
         getSingleProduct()
     }, [elementID])
-
+    useEffect(() => { setTimeout(() => { setIsLoading(true) }, 500) }, [])
     function getSingleProduct() {
 
         let product = products.products.filter((ele) => {
-            return elementID === ele.id;
+            return elementID == ele.id;
         })
         setSingleProduct((prevState) => product);
     }
@@ -106,7 +110,7 @@ function SingleProduct() {
     return (<Box padding="3rem 3rem">
         {/* Jai Shree Ram */}
 
-        {singleProduct.length > 0 ? <SimpleGrid gap={10} columns={[1, 1, 2]}>
+        {singleProduct.length > 0 && isLoading ? <SimpleGrid gap={10} columns={[1, 1, 2]}>
             {<Box>
                 {isSmallScreen ? (
                     <Carousel showArrows={true}>
@@ -126,7 +130,7 @@ function SingleProduct() {
                     </SimpleGrid>
                 )}
             </Box>}
-            {singleProduct.length > 0 ? <VStack spacing={10}>
+            {singleProduct.length > 0 && isLoading ? <VStack spacing={10}>
                 <Box p={4} bg="white" borderWidth="1px" borderRadius="md" boxShadow="md">
                     <Stack direction={{ base: "column", lg: "column" }} align={{ base: "stretch", lg: "center" }} justify={{ base: "center", lg: "space-between" }}>
                         <Stack w="100%" direction="row" align="center" justify="space-between" flex="1" >
@@ -162,7 +166,7 @@ function SingleProduct() {
                         </Box>
                     </Stack>
                     <HStack>
-                        <Image src="https://urlpile.com/images/hwWJv1.jpg" />
+                        <Image src="https://imgpile.com/images/hRgXVo.jpg" />
                     </HStack>
                 </Box>
 
@@ -205,8 +209,7 @@ function SingleProduct() {
             <Heading>Loading...</Heading>
         </HStack>
         }
-
-        <DynamicProducts />
+        {isLoading && <DynamicProducts />}
     </Box >);
 }
 
