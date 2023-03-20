@@ -22,7 +22,7 @@ let data = [{
     price: "$450"
 },
 {
-    src: 'https://www.ikeaa.com/in/en/images/products/symfonisk-wifi-bookshelf-speaker-black__0722663_pe741648_s5.jpg?f=xxs',
+    src: 'https://www.ikea.com/in/en/images/products/symfonisk-wifi-bookshelf-speaker-black__0722663_pe741648_s5.jpg?f=xxs',
     title: "Living room Sofa",
     description: " This sofa is perfect for modern tropical spaces, baroque inspiredspaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
     price: "$450"
@@ -49,9 +49,9 @@ function DynamicProducts() {
         <Box p="50px 0px">
             <Heading p="20px 0px">Related categories</Heading>
             <HStack wrap="wrap" justify="space-evenly">
-                {data.map((ele) => {
+                {data.map((ele, index) => {
                     return (
-                        <Card maxW='sm'>
+                        <Card maxW='sm' key={index + 1}>
                             <CardBody>
                                 <Image
                                     w="200px"

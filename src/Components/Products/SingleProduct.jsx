@@ -5,8 +5,10 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from "react";
 import DynamicProducts from "./DynamicProducts"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import products from "./../JsonFiles/elctroCo.json";
+import { useParams } from "react-router-dom"
+
 
 let pinCodeData = [
     { pinCode: 301406 },
@@ -23,25 +25,38 @@ let pinCodeData = [
 
 
 function SingleProduct() {
+
     const [singleProduct, setSingleProduct] = useState([])
     const [pinCheck, setPincheck] = useState(false)
     const [userPin, setUserPin] = useState(123456);
     const [progessDisplay, setProgessDisplay] = useState("none");
     const [progessPercentage, setProgessPercentage] = useState(1);
     const [pinText, setPinText] = useState("");
-
-    let elementID = useSelector((state) => {
-        return state.element;
-    })
-
+    const [isLoading, setIsLoading] = useState(false);
+    const { elementID } = useParams();
+    const [isCartBTNClicked, setCartBTNClicked] = useState(false);
+    // let elementID = useSelector((state) => {
+    //     return state.element;
+    // })
+    console.log("elementID", elementID)
     useEffect(() => {
         getSingleProduct()
     }, [elementID])
 
+    let cart = useSelector((state) => {
+        return state.cart;
+    })
+    useEffect(() => {
+        cart.map((e) => {
+            e.id == elementID && setCartBTNClicked(true);
+        })
+    }, [])
+
+    useEffect(() => { setTimeout(() => { setIsLoading(true) }, 500) }, [])
     function getSingleProduct() {
 
         let product = products.products.filter((ele) => {
-            return elementID === ele.id;
+            return elementID == ele.id;
         })
         setSingleProduct((prevState) => product);
     }
@@ -106,7 +121,7 @@ function SingleProduct() {
     return (<Box padding="3rem 3rem">
         {/* Jai Shree Ram */}
 
-        {singleProduct.length > 0 ? <SimpleGrid gap={10} columns={[1, 1, 2]}>
+        {singleProduct.length > 0 && isLoading ? <SimpleGrid gap={10} columns={[1, 1, 2]}>
             {<Box>
                 {isSmallScreen ? (
                     <Carousel showArrows={true}>
@@ -126,7 +141,7 @@ function SingleProduct() {
                     </SimpleGrid>
                 )}
             </Box>}
-            {singleProduct.length > 0 ? <VStack spacing={10}>
+            {singleProduct.length > 0 && isLoading ? <VStack spacing={10}>
                 <Box p={4} bg="white" borderWidth="1px" borderRadius="md" boxShadow="md">
                     <Stack direction={{ base: "column", lg: "column" }} align={{ base: "stretch", lg: "center" }} justify={{ base: "center", lg: "space-between" }}>
                         <Stack w="100%" direction="row" align="center" justify="space-between" flex="1" >
@@ -162,7 +177,7 @@ function SingleProduct() {
                         </Box>
                     </Stack>
                     <HStack>
-                        <Image src="https://urlpile.com/images/hwWJv1.jpg" />
+                        <Image src="https://imgpile.com/images/hRgXVo.jpg" />
                     </HStack>
                 </Box>
 
@@ -191,7 +206,7 @@ function SingleProduct() {
 
                 </Box>
                 <HStack w="100%" justify={"center"}>
-                    <Button size="lg" w="75%" bg="#0058A3" colorScheme="blue" borderRadius="22px" >Add to bag</Button>
+                    {isCartBTNClicked ? <Button size="lg" w="75%" bg="#FDCC29" colorScheme="yellow" borderRadius="22px" >Already in Cart :)</Button> : <Button size="lg" w="75%" bg="#0058A3" colorScheme="blue" borderRadius="22px" >Add to bag</Button>}
                 </HStack>
                 <VStack>
                     <Text>
@@ -205,8 +220,7 @@ function SingleProduct() {
             <Heading>Loading...</Heading>
         </HStack>
         }
-
-        <DynamicProducts />
+        {isLoading && <DynamicProducts />}
     </Box >);
 }
 
