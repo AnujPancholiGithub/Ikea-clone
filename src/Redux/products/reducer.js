@@ -1,4 +1,4 @@
-import { SET_FILTER, SET_PRODUCTS, SET_SORT, SET_SINGLEPRODUCT, ADD_2_CART, ADD_2_WISHLIST, cart_Button_Cliked } from "./actionTypes";
+import { SET_FILTER, SET_PRODUCTS, SET_SORT, SET_SINGLEPRODUCT, ADD_2_CART, ADD_2_WISHLIST, cart_Button_Cliked, UPDATE_CART } from "./actionTypes";
 import products from "./../../Components/JsonFiles/elctroCo.json"
 import { act } from "react-dom/test-utils";
 
@@ -48,6 +48,12 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 cart: [...state.cart, action.cart]
+            }
+        case UPDATE_CART:
+            localStorage.setItem("CartData", JSON.stringify(action.cartArr));
+            return {
+                ...state,
+                cart: action.cartArr
             }
         case ADD_2_WISHLIST:
             localStorage.setItem("wishlist", JSON.stringify([...state.wishlist, action.wishlist]));

@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from "react";
 import DynamicProducts from "./DynamicProducts"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import products from "./../JsonFiles/elctroCo.json";
 import { useParams } from "react-router-dom"
 
@@ -34,6 +34,7 @@ function SingleProduct() {
     const [pinText, setPinText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const { elementID } = useParams();
+    const [isCartBTNClicked, setCartBTNClicked] = useState(false);
     // let elementID = useSelector((state) => {
     //     return state.element;
     // })
@@ -41,6 +42,16 @@ function SingleProduct() {
     useEffect(() => {
         getSingleProduct()
     }, [elementID])
+
+    let cart = useSelector((state) => {
+        return state.cart;
+    })
+    useEffect(() => {
+        cart.map((e) => {
+            e.id == elementID && setCartBTNClicked(true);
+        })
+    }, [])
+
     useEffect(() => { setTimeout(() => { setIsLoading(true) }, 500) }, [])
     function getSingleProduct() {
 
@@ -195,7 +206,7 @@ function SingleProduct() {
 
                 </Box>
                 <HStack w="100%" justify={"center"}>
-                    <Button size="lg" w="75%" bg="#0058A3" colorScheme="blue" borderRadius="22px" >Add to bag</Button>
+                    {isCartBTNClicked ? <Button size="lg" w="75%" bg="#FDCC29" colorScheme="yellow" borderRadius="22px" >Already in Cart :)</Button> : <Button size="lg" w="75%" bg="#0058A3" colorScheme="blue" borderRadius="22px" >Add to bag</Button>}
                 </HStack>
                 <VStack>
                     <Text>

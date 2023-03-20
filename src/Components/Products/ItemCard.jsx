@@ -19,6 +19,17 @@ function ItemCard({ ele, index }) {
     const toast = useToast()
     let dispatch = useDispatch()
 
+    let cart = useSelector((state) => {
+        return state.cart;
+    })
+    console.log("setCartBTNClicked(true);", isCartBTNClicked, ele.id)
+
+    useEffect(() => {
+        cart.map((e) => {
+            e.id == ele.id && setCartBTNClicked(true);
+        })
+    }, [])
+
     function handelProductDetail(id, title) {
         dispatch(singleProductAction(id));
 
@@ -27,33 +38,56 @@ function ItemCard({ ele, index }) {
         console.log("clicked on card")
     }
 
-    function handelCart(id, title) {
-        console.log("added to cart", id, title);
-        toast({
-            title: "Woohoo! You're one step closer to owning this item :)",
-            description: title,
-            status: 'success',
-            duration: 2100,
-            isClosable: true,
-        })
-        setCartBTNClicked(true);
+    function handelCart(id, title, price, brand, quantity, img) {
 
-        dispatch(add2CartAction(id))
+        if (!isCartBTNClicked) {
+            console.log("added to cart", id, title);
+            toast({
+                title: "Woohoo! You're one step closer to owning this item :)",
+                description: title,
+                status: 'success',
+                duration: 2100,
+                isClosable: true,
+            })
+            setCartBTNClicked(true);
+            let cartObj = {
+                id,
+                title, price, brand, quantity, img
+            }
+            dispatch(add2CartAction(cartObj))
+        } else {
+            toast({
+                title: 'Already added to Cart',
+                description: title,
+                status: 'info',
+                duration: 2500,
+                isClosable: true,
+            })
+        }
 
     }
 
     function handelWishList(id, title) {
         console.log("added to Wishlist", id, title);
-        toast({
-            title: 'High five! Item added to shopping list :)',
-            description: title,
-            status: 'info',
-            duration: 2500,
-            isClosable: true,
-        })
-        setWishBTNClicked(true)
-        dispatch(add2WishListAction(id));
-
+        if (!isWishBTNClicked) {
+            toast({
+                title: 'High five! Item added to shopping list :)',
+                description: title,
+                status: 'info',
+                duration: 2500,
+                isClosable: true,
+            })
+            setWishBTNClicked(true)
+            dispatch(add2WishListAction(id));
+        } else {
+            toast({
+                title: 'Already added to wishlist',
+                description: title,
+                status: 'info',
+                duration: 2500,
+                isClosable: true,
+            })
+        }
     }
 
 
@@ -92,7 +126,7 @@ function ItemCard({ ele, index }) {
                 <CardFooter>
                     <ButtonGroup spacing={[48, 32, 24, 24]}>
                         <IconButton isRound="true"
-                            onClick={() => { handelCart(ele.id, ele.title) }}
+                            onClick={() => { handelCart(ele.id, ele.title, ele.price, ele.brand, 1, ele.images[0].url) }}
                             bg={isCartBTNClicked ? "#fedb68" : "white"}
                             aria-label='Call Segun'
                             size='lg'

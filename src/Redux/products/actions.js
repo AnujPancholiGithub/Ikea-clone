@@ -1,5 +1,5 @@
 import store from "./../store"
-import { SET_FILTER, SET_SORT, SET_PRODUCTS, SET_SINGLEPRODUCT, ADD_2_CART, ADD_2_WISHLIST, cartButtonCliked, cart_Button_Cliked } from "./actionTypes"
+import { SET_FILTER, SET_SORT, SET_PRODUCTS, SET_SINGLEPRODUCT, ADD_2_CART, ADD_2_WISHLIST, cartButtonCliked, cart_Button_Cliked, UPDATE_CART } from "./actionTypes"
 
 export const setProducts = (products) => ({
     type: SET_PRODUCTS,
@@ -34,6 +34,14 @@ export const add2CartAction = (cart) => ({
     cart: cart,
 
 })
+export const updateCartAction = (cartArr) => ({
+
+    type: UPDATE_CART,
+    cartArr: cartArr,
+
+})
+
+
 export const add2WishListAction = (wishlist) => ({
 
     type: ADD_2_WISHLIST,

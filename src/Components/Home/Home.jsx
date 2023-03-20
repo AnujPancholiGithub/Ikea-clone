@@ -28,7 +28,7 @@ function Home() {
     return (
         <div style={{ margin: '20px' }}>
 
-            <div className='d-flex'>
+            <div className='d-flex' >
                 <div className='col-6 text-center' >
                     <img src="https://www.ikea.com/images/01/38/01380295769f06cd347e386777678534.jpg?f=xl" alt="" width='90%' />
                 </div>
@@ -48,7 +48,7 @@ function Home() {
                 <hr />
             </div>
             <div>
-                <h1 className='mb-5'>Categories for better storage and organisation</h1>
+                <h1 className='mb-5'> Categories for better storage and organisation </h1>
                 <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }} >
                     <Imagecards image={'https://www.ikea.com/images/66/a7/66a7ad4f93664a50fa386f545860a313.jpg?f=xs'} name={'Hook & wall organisation from Rs.75'} />
                     <Imagecards image={'https://www.ikea.com/images/50/e9/50e95854f19088058cc930d33913e285.jpg?f=xs'} name={'Shoe boxes & organisers from Rs.49'} />
@@ -63,7 +63,7 @@ function Home() {
             <div style={{ marginTop: '5%', marginBottom: '5%' }}>
                 <hr />
             </div>
-            <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }}>
+            {/* <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }}>
                 <Contentcard image={'https://www.ikea.com/images/4c/9c/4c9c38d8fd3e45c4b19c19249a35dfc3.jpg?f=s'} title={'Welcome to my organised home!'} text={'Organise like a pro with our storage solutions'} color={'#EFDBBD'} />
                 <Contentcard image={'https://www.ikea.com/images/c7/2d/c72d847045b316de7e0aa08fabbad2d4.jpg?f=s'} title={'Live from IKEA'} text={'Join us to learn the best lighting solutions for your space. '} color={'#E3A79A'} />
                 <Contentcard image={'https://www.ikea.com/images/44/61/4461117f5cdeacb9ec80d3432a7e4acb.jpg?f=s'} title={`Ideas for valentine's day`} text={`Go beyond dinner and flowers with these fresh, fun Valentine's Day ideas`} color={'#870432'} textColor={'white'} />
@@ -74,8 +74,7 @@ function Home() {
                 <Contentcard image={'https://www.ikea.com/images/b1/bf/b1bff79e991818ed4ac42b0364b9a977.png?f=s'} title={`Furniture under Rs.2999`} text={`Affordable furniture to create a space of your own`} color={'#591745'} textColor={'white'} />
                 <Contentcard image={'https://www.ikea.com/images/df/ef/dfef7c3f8054fb611e01cc62f5dbb318.jpg?f=s'} title={`Affordable bedroom sets starting at Rs.14,990`} text={`Why not match your bed to other furniture in the room for a cohesive look?`} color={'#234031'} textColor={'white'} />
                 <Contentcard image={'https://www.ikea.com/images/98/94/98948836271b7eeaf356648d74a28a80.jpg?f=s'} title={`Our lowest price`} text={`Shop our lowest price products`} color={'#FFDB00'} />
-            </div>
-
+            </div> */}
             <div style={{ marginTop: '7%' }}>
                 <h4 className='mb-5'>IKEA family offers</h4>
                 <div className='d-flex'>
@@ -122,7 +121,6 @@ function Home() {
                     <Imagecards image={'https://www.ikea.com/images/67/71/67713b64c75fbe5851c2756c2fa95db0.jpg?f=xs'} name={'Dining sets'} />
                     <Imagecards image={'https://www.ikea.com/images/2d/6b/2d6b918803728f28cb6263202f51596c.jpg?f=xs'} name={'Kitchen storage & furniture'} />
                     <Imagecards image={'https://www.ikea.com/images/59/66/59669cf5cbd26afe97eb35d05022e31a.jpg?f=xs'} name={'Balcony & garden'} />
-
                 </div>
             </div>
             <div style={{ marginTop: '5%', marginBottom: '5%' }}>
@@ -135,14 +133,12 @@ function Home() {
                     <Imagecards image={'https://www.ikea.com/images/f1/7d/f17d9897443bb614e2489e83a07cad69.jpg?f=xs'} name={'Shoe rack and clothes stand'} />
                     <Imagecards image={'https://www.ikea.com/images/71/74/7174cb3dea2042f227b5382aaf8d5d17.jpg?f=xs'} name={'Home electronics'} />
                     <Imagecards image={'https://www.ikea.com/images/23/2a/232af11a91aedfd8a1671763cf573fe1.jpg?f=xs'} name={'Lighting'} />
-
-
                 </div>
             </div>
-            <div style={{ marginTop: '5%', marginBottom: '5%' }}>
+            {/* <div style={{ marginTop: '5%', marginBottom: '5%' }}>
                 <hr />
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
                 <h4>See how our products look in real homes!</h4>
                 <p>Share your photos on Instagram with #IKEAlifeathome or tag @ikea.india to get a chance to be seen here!</p>
                 <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth', marginTop: '5%' }} >
@@ -157,16 +153,16 @@ function Home() {
                     <Imagecards image={'https://www.ikea.com/ext/ingkadam/m/1b91836834c039a0/original/UGC100001439.jpg?f=xxl'} />
                     <Imagecards image={'https://www.ikea.com/ext/ingkadam/m/42924e80d3b5e393/original/UGC100014406.jpg?f=xxl'} />
                 </div>
-            </div>
+            </div> */}
             <div style={{ marginTop: '5%', marginBottom: '5%' }}>
                 <hr />
             </div>
-            <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }}>
+            {/* <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }}>
                 <Contentcard image={'https://www.ikea.com/images/41/ed/41ed5c7206877ec91db94c5591e5fa7e.png?f=s'} title={'All offers'} text={'We always have some amazing offers waiting for you.'} textColor={'white'} color={'#334D34'} />
                 <Contentcard image={'https://www.ikea.com/images/26/1a/261a21be328ae2ccc06f37505c4cd310.jpg?f=s'} title={'Products under Rs.199'} text={`You don't need a big wallet to afford high-quality products.`} textColor={'white'} color={'#620F0F'} />
                 <Contentcard image={'https://www.ikea.com/images/3c/d3/3cd3902b186716ed15503a4b81060ece.png?f=s'} title={'Clearance sale'} text={'Grab the latest home furnishing trends at great prices.'} textColor={'black'} color={'#FFDB00'} />
                 <Contentcard image={'https://www.ikea.com/images/3c/d3/3cd3902b186716ed15503a4b81060ece.png?f=s'} title={'Download IKEA app'} text={'Download the IKEA app today, and explore a wide range of affordable, well-designed and functional home furnishing solutions'} textColor={'white'} color={'#724434'} />
-            </div>
+            </div> */}
             <div style={{ marginTop: '5%', marginBottom: '5%' }}>
                 <hr />
             </div>
@@ -208,10 +204,23 @@ function Home() {
                         }
                     </div>
                 }
+                <div>
+                    <h1 className='mb-5'> Categories for better storage and organisation </h1>
+                    <div className='d-flex' style={{ overflow: 'auto', overflowY: 'hidden', scrollBehavior: 'smooth' }} >
+                        <Imagecards image={'https://www.ikea.com/images/66/a7/66a7ad4f93664a50fa386f545860a313.jpg?f=xs'} name={'Hook & wall organisation from Rs.75'} />
+                        <Imagecards image={'https://www.ikea.com/images/50/e9/50e95854f19088058cc930d33913e285.jpg?f=xs'} name={'Shoe boxes & organisers from Rs.49'} />
+                        <Imagecards image={'https://www.ikea.com/images/7d/6b/7d6b63203c8e2ddaa5da559889004299.jpg?f=xs'} name={'Clothes organisers from Rs.49'} />
+                        <Imagecards image={'https://www.ikea.com/images/29/e2/29e200bea35809affce65080b33e8632.jpg?f=xs'} name={'Kitchen organisers from Rs.39'} />
+                        <Imagecards image={'https://www.ikea.com/images/c7/85/c7853e88497ae33a463af264e2638233.jpg?f=xs'} name={'Food storage & organise from Rs.19'} />
+                        <Imagecards image={'https://www.ikea.com/images/12/7b/127b63b070df8db01ae9b26bf9eb2a8f.jpg?f=xs'} name={'Storage boxes & baskets from Rs.19'} />
+                        <Imagecards image={'https://www.ikea.com/images/4e/a9/4ea92836239c90b4ca8c40409a639cc8.jpg?f=xs'} name={'Wall shelves from Rs.299'} />
+                        <Imagecards image={'https://www.ikea.com/images/8c/13/8c13033770991ef467371a52fbf56c3c.jpg?f=xs'} name={'Trolleys from Rs.949'} />
+                    </div>
+                </div>
 
-                <button onClick={() => { setIndex(index + 1) }} className='btn btn-dark rounded-pill mb-5 ' style={{
+                {/* <button onClick={() => { setIndex(index + 1) }} className='btn btn-dark rounded-pill mb-5 ' style={{
                     display: 'flex', margin: '0 auto', padding: '1% 4%', fontSize: '18px'
-                }}>Load Next 12</button>
+                }}>Load Next 12</button> */}
             </div>
 
 
